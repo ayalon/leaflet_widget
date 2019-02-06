@@ -366,4 +366,8 @@ class LeafletWidget extends GeofieldDefaultWidget {
     return $element;
   }
 
+  public function getFieldDefinition() {
+    return $this->fieldDefinition;
+  }
+
 }
