@@ -8,3 +8,11 @@ leaflet-pm:
   dependencies:
     - core/jquery
     - leaflet/leaflet
+
+widget:
+  version: VERSION
+  js:
+    js/widget.js: {}
+  dependencies:
+    - leaflet/leaflet-drupal
+    - leaflet_widget/wicket-leaflet

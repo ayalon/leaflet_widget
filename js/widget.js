@@ -57,10 +57,6 @@
 
             map.addLayer(this.drawnItems);
 
-            if(this.settings.scrollZoomEnabled) {
-                map.scrollWheelZoom.enable();
-            }
-
             map.pm.addControls(this.settings.toolbarSettings);
 
             map.on('pm:create', function(event){

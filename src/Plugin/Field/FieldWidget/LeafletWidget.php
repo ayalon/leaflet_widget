@@ -320,14 +320,24 @@ class LeafletWidget extends GeofieldDefaultWidget {
     // Determine map settings and add map element.
     $map_settings = $this->getSetting('map');
     $input_settings = $this->getSetting('input');
+    $js_settings = [];
     $map = leaflet_map_get_info($map_settings['leaflet_map']);
     $map['settings']['center'] = $map_settings['center'];
     $map['settings']['zoom'] = $map_settings['zoom'];
+
+    if(!empty($map_settings['locate'])) {
+      $js_settings['locate'] = TRUE;
+      unset($map['settings']['center']);
+    }
+
+    if(!empty($map_settings['scroll_zoom_enabled'])) {
+      $map['settings']['scrollWheelZoom'] = TRUE;
+    }
+
     $element['map'] = $this->leafletService->leafletRenderMap($map, [], $map_settings['height'] . 'px');
     $element['map']['#weight'] = -1;
 
     // Build JS settings for leaflet widget.
-    $js_settings = [];
     $js_settings['map_id'] = $element['map']['#map_id'];
     $js_settings['jsonElement'] = '.' . $json_element_name;
     $cardinality = $items->getFieldDefinition()
@@ -338,10 +348,7 @@ class LeafletWidget extends GeofieldDefaultWidget {
     $js_settings['autoCenter'] = $map_settings['auto_center'];
     $js_settings['inputHidden'] = empty($input_settings['show']);
     $js_settings['inputReadonly'] = !empty($input_settings['readonly']);
-
     $js_settings['toolbarSettings'] = !empty($this->getSetting('toolbar')) ? $this->getSetting('toolbar') : [];
-    $js_settings['locate'] = !empty($map_settings['locate']) ? $map_settings['locate'] : FALSE;
-    $js_settings['scrollZoomEnabled'] = !empty($map_settings['scroll_zoom_enabled']) ? $map_settings['scroll_zoom_enabled'] : FALSE;
 
     // Include javascript.
     $element['map']['#attached']['library'][] = 'leaflet_widget/widget';
