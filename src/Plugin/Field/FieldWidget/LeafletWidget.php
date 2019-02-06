@@ -200,8 +200,8 @@ class LeafletWidget extends GeofieldDefaultWidget {
     ];
     $form['map']['scroll_zoom_enabled'] = [
       '#type' => 'checkbox',
-      '#title' => $this->t('Enable Scroll Wheel Zoom'),
-      '#description' => t("This option enables zooming by mousewheel."),
+      '#title' => $this->t('Enable Scroll Wheel Zoom on click'),
+      '#description' => t("This option enables zooming by mousewheel as soon as the user clicked on the map."),
       '#default_value' => $map_settings['scroll_zoom_enabled'],
     ];
 
@@ -325,13 +325,9 @@ class LeafletWidget extends GeofieldDefaultWidget {
     $map['settings']['center'] = $map_settings['center'];
     $map['settings']['zoom'] = $map_settings['zoom'];
 
-    if(!empty($map_settings['locate'])) {
+    if (!empty($map_settings['locate'])) {
       $js_settings['locate'] = TRUE;
       unset($map['settings']['center']);
-    }
-
-    if(!empty($map_settings['scroll_zoom_enabled'])) {
-      $map['settings']['scrollWheelZoom'] = TRUE;
     }
 
     $element['map'] = $this->leafletService->leafletRenderMap($map, [], $map_settings['height'] . 'px');
@@ -349,6 +345,7 @@ class LeafletWidget extends GeofieldDefaultWidget {
     $js_settings['inputHidden'] = empty($input_settings['show']);
     $js_settings['inputReadonly'] = !empty($input_settings['readonly']);
     $js_settings['toolbarSettings'] = !empty($this->getSetting('toolbar')) ? $this->getSetting('toolbar') : [];
+    $js_settings['scrollZoomEnabled'] = !empty($map_settings['scroll_zoom_enabled']) ? $map_settings['scroll_zoom_enabled'] : FALSE;
 
     // Include javascript.
     $element['map']['#attached']['library'][] = 'leaflet_widget/widget';
@@ -366,6 +363,9 @@ class LeafletWidget extends GeofieldDefaultWidget {
     return $element;
   }
 
+  /**
+   *
+   */
   public function getFieldDefinition() {
     return $this->fieldDefinition;
   }

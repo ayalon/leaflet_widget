@@ -57,6 +57,15 @@
 
             map.addLayer(this.drawnItems);
 
+            if(this.settings.scrollZoomEnabled) {
+                map.on('focus', function () {
+                    map.scrollWheelZoom.enable();
+                });
+                map.on('blur', function () {
+                    map.scrollWheelZoom.disable();
+                });
+            }
+
             map.pm.addControls(this.settings.toolbarSettings);
 
             map.on('pm:create', function(event){
