@@ -270,7 +270,7 @@ class LeafletWidget extends GeofieldDefaultWidget {
 
     $form['toolbar']['drawCircle'] = [
       '#type' => 'checkbox',
-      '#title' => $this->t('Adds button to draw cricle.'),
+      '#title' => $this->t('Adds button to draw circle.'),
       '#default_value' => $toolbar_settings['drawCircle'],
     ];
 
@@ -288,7 +288,7 @@ class LeafletWidget extends GeofieldDefaultWidget {
 
     $form['toolbar']['cutPolygon'] = [
       '#type' => 'checkbox',
-      '#title' => $this->t('Adds button to cut hole in polyvon.'),
+      '#title' => $this->t('Adds button to cut hole in polygon.'),
       '#default_value' => $toolbar_settings['cutPolygon'],
     ];
 
