@@ -15,4 +15,3 @@ widget:
     js/widget.js: {}
   dependencies:
     - leaflet/leaflet-drupal
-    - leaflet_widget/wicket-leaflet
