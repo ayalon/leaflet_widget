@@ -101,7 +101,7 @@ class LeafletWidget extends GeofieldDefaultWidget {
         'height' => 300,
         'center' => [
           'lat' => 0.0,
-          'lng' => 0.0,
+          'lon' => 0.0,
         ],
         'auto_center' => TRUE,
         'zoom' => 10,
@@ -174,10 +174,10 @@ class LeafletWidget extends GeofieldDefaultWidget {
       '#default_value' => $map_settings['center']['lat'],
       '#required' => TRUE,
     ];
-    $form['map']['center']['lng'] = [
+    $form['map']['center']['lon'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Longtitude'),
-      '#default_value' => $map_settings['center']['lng'],
+      '#default_value' => $map_settings['center']['lon'],
       '#required' => TRUE,
     ];
     $form['map']['auto_center'] = [
