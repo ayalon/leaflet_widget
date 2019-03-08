@@ -10,7 +10,6 @@ It supports drawing of
 - Polyline
 - Rectangle
 - Polygon / Multipolygon
-- Circle
 
 It has
 - Edit Mode
