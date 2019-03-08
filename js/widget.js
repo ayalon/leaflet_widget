@@ -91,6 +91,14 @@
                 this.update_text();
             }, this);
 
+            // listen to cuts on the new layer
+            map.on('pm:cut', function (event) {
+                // Cutting a layer return a new layer. The old layer has to be removed
+                this.drawnItems.removeLayer(event.originalLayer);
+                this.drawnItems.addLayer(event.layer);
+                this.update_text();
+            }, this);
+
             this.update_map();
         }
     };
