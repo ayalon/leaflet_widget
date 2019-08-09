@@ -271,7 +271,7 @@ class LeafletWidget extends GeofieldDefaultWidget {
     $form['toolbar']['drawCircle'] = [
       '#type' => 'hidden',
       '#title' => $this->t('Adds button to draw circle. (unsupported by Leaflet / GeoJSON'),
-      //'#default_value' => $toolbar_settings['drawCircle'],
+      // '#default_value' => $toolbar_settings['drawCircle'],
       '#default_value' => FALSE,
     ];
 
@@ -333,6 +333,11 @@ class LeafletWidget extends GeofieldDefaultWidget {
 
     $element['map'] = $this->leafletService->leafletRenderMap($map, [], $map_settings['height'] . 'px');
     $element['map']['#weight'] = -1;
+
+    $element['title']['#type'] = 'item';
+    $element['title']['#title'] = $element['value']['#title'];
+    $element['title']['#weight'] = -2;
+    $element['value']['#title'] = $this->t('GeoJson Data');
 
     // Build JS settings for leaflet widget.
     $js_settings['map_id'] = $element['map']['#map_id'];
