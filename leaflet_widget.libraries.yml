@@ -1,10 +1,10 @@
-leaflet-pm:
-  version: 2.0.2
+leaflet-geoman:
+  version: 2.x
   css:
     theme:
-      '//unpkg.com/leaflet.pm@latest/dist/leaflet.pm.css': {type: external, minified: true}
+      '//unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.css': {type: external, minified: true}
   js:
-    '//unpkg.com/leaflet.pm@latest/dist/leaflet.pm.min.js': {type: external, minified: true}
+    '//unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.min.js': {type: external, minified: true}
   dependencies:
     - core/jquery
     - leaflet/leaflet
