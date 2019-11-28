@@ -1,4 +1,4 @@
-Drupal Leaflet Widget using Leaflet.pm
+Drupal Leaflet Widget using Leaflet.geoman
 ==========================================
 
 Allows the selection of geofield values via leaflet maps.
@@ -22,9 +22,9 @@ The GeoJSON Data is saved in the geofield module.
 ![](demo/settings.gif)
 
 
-For drawing of layers it used the library [Leaflet.PM](https://github.com/codeofsumit/leaflet.pm) instead of Leaflet.draw:
+For drawing of layers it used the library [Leaflet.Geoman](https://github.com/geoman-io/leaflet-geoman) instead of Leaflet.draw:
 
-Because [Leaflet.Draw](http://leaflet.github.io/Leaflet.draw/docs/leaflet-draw-latest.html) does not support MULTIPOLYGON, the Leaflet.PM library was used.
+Because [Leaflet.Draw](http://leaflet.github.io/Leaflet.draw/docs/leaflet-draw-latest.html) does not support MULTIPOLYGON, the Leaflet.Geoman library was used.
 
 
 Original author
