@@ -176,15 +176,17 @@ trait LeafletWidgetSettingsTrait {
     ];
 
     $form['toolbar']['drawCircle'] = [
-      '#type' => 'hidden',
+      '#type' => 'checkbox',
       '#title' => $this->t('Adds button to draw circle. (unsupported by GeoJSON'),
       '#default_value' => $toolbar_settings['drawCircle'],
+      '#disabled' => TRUE,
     ];
 
     $form['toolbar']['drawCircleMarker'] = [
-      '#type' => 'hidden',
+      '#type' => 'checkbox',
       '#title' => $this->t('Adds button to draw circle marker. (unsupported by GeoJSON'),
       '#default_value' => $toolbar_settings['drawCircleMarker'],
+      '#disabled' => TRUE,
     ];
 
     $form['toolbar']['editMode'] = [
