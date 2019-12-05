@@ -26,6 +26,7 @@ trait LeafletWidgetSettingsTrait {
         'zoom' => 10,
         'locate' => TRUE,
         'scroll_zoom_enabled' => TRUE,
+        'fullscreen_control' => TRUE,
       ],
       'input' => [
         'show' => TRUE,
@@ -110,6 +111,14 @@ trait LeafletWidgetSettingsTrait {
       '#title' => $this->t('Enable Scroll Wheel Zoom on click'),
       '#description' => t("This option enables zooming by mousewheel as soon as the user clicked on the map."),
       '#default_value' => $map_settings['scroll_zoom_enabled'],
+    ];
+
+    $form['map']['fullscreen_control'] = [
+      '#type' => 'checkbox',
+      '#title' => $this->t('Fullscreen Control'),
+      '#description' => $this->t('Enable the Fullscreen View of the Map.'),
+      '#default_value' => $map_settings['fullscreen_control'],
+      '#return_value' => 1,
     ];
 
     $input_settings = $this->getSetting('input');
